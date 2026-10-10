@@ -1,0 +1,18 @@
+{
+  "name": "Personal Command Center",
+  "short_name": "Command Center",
+  "description": "A personal home for your tools, tasks, and ideas.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#111916",
+  "theme_color": "#172d27",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
