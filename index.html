@@ -230,7 +230,7 @@ async function loadCloud(user){
   console.error('Cloud load error',e.message);
  }
 }
-async async function authAction(mode){
+async function authAction(mode){
  if(!cloud){$('authstatus').textContent='Sign-in service did not load. Check your connection and reload.';return}
  const email=$('auth-email').value.trim(),password=$('auth-password').value;
  if(!email||password.length<8){$('authstatus').textContent='Enter your email and a password with at least 8 characters.';return}
