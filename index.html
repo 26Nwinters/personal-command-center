@@ -22,6 +22,48 @@
 .authactions button{flex:1;min-width:120px}
 .authstatus{min-height:22px;color:var(--bright)!important;font-size:12px!important}
 .authnote{font-size:11px!important;border-top:1px solid var(--line);padding-top:15px;margin-top:22px}
+
+/* Subtle retro forest theme */
+:root{--bg:#121811;--side:#1a2419;--panel:#222b1f;--soft:#293426;--line:#46503a;--text:#eee7d4;--muted:#b4b49b;--dim:#8b927b;--gold:#c8ad70;--bright:#e4d09a;font-family:'DM Sans',sans-serif}
+body{background-color:var(--bg);background-image:radial-gradient(ellipse at 88% 0%,rgba(92,111,67,.09),transparent 42%),linear-gradient(90deg,rgba(211,190,132,.018) 1px,transparent 1px);background-size:auto,6px 6px}
+.sidebar{background:linear-gradient(180deg,#202b1e,#171f18);border-right:1px solid #596045;box-shadow:inset -3px 0 0 rgba(0,0,0,.12)}
+.brand{gap:10px;padding-bottom:34px}
+.brand-logo{display:block;flex:0 0 34px;width:34px;height:34px;object-fit:contain;filter:drop-shadow(0 2px 2px #0005)}
+.brand strong{font-size:12px;letter-spacing:2.2px;color:#f0e8d3}
+.brand small{font-size:9px;letter-spacing:3.4px;color:var(--gold)}
+.nav{gap:6px}
+.nav button{border-radius:5px;border:1px solid transparent;padding:11px 13px}
+.nav button:hover,.nav button.active{background:linear-gradient(180deg,#35442f,#2a3827);border-color:#65704c;color:#f0dba1;box-shadow:inset 0 1px rgba(255,255,255,.05)}
+.main{background:linear-gradient(180deg,rgba(218,200,147,.018),transparent 230px)}
+.topbar{border-bottom-color:#4b533d;background:rgba(20,28,19,.42)}
+.eyebrow{letter-spacing:2px;text-transform:uppercase}
+h1{letter-spacing:-1.2px}
+.search{background:#20291e;border-color:#62694d;border-radius:7px;box-shadow:inset 0 1px 3px #0003}
+.search button,.primary,.weatherform button,.eventform button,.addrow button{background:linear-gradient(180deg,#d8c184,#b99a5b);border:1px solid #e4d09a;border-radius:5px;color:#25291d;box-shadow:inset 0 1px rgba(255,255,255,.32)}
+.search button:hover,.primary:hover,.weatherform button:hover,.eventform button:hover,.addrow button:hover{filter:brightness(1.06)}
+.app{background:linear-gradient(145deg,#2b3628,#20291f);border-color:#49543c;border-radius:7px;box-shadow:inset 0 1px rgba(255,255,255,.035)}
+.app:hover{transform:translateY(-1px);border-color:#b49a61}
+.appicon{border-radius:5px;background:#394633;border:1px solid #536044}
+.panel{background:linear-gradient(155deg,rgba(43,54,39,.98),rgba(31,40,29,.98));border-color:#4b553f;border-radius:8px;box-shadow:0 5px 18px rgba(0,0,0,.13),inset 0 1px rgba(255,255,255,.035)}
+.panelhead h2,.heading h2{letter-spacing:.1px}
+.count{border:1px solid #5a6147;border-radius:4px;background:#343e2d}
+.task,.eventitem{border-radius:5px;background:#2b3527;border:1px solid rgba(112,123,83,.18)}
+.tasktag{border-radius:3px}
+.addrow input,.weatherform input,.eventform input,.taskmeta select,.taskmeta input,.notetools input,.notetools select,.noteeditor input,.notes textarea{background:#192219;border-color:#4a5540;border-radius:5px}
+.notelist button{border-radius:5px}
+.notelist button.active{background:#36422e;box-shadow:inset 3px 0 var(--gold)}
+.focus{background:linear-gradient(135deg,#34432c,#202d21);border-color:#64704a}
+.focus h2,.view-title{color:#ead8a8}
+.outline{border-radius:5px;border-color:#687153}
+.sidebar-bottom{border-top-color:#4a533c}
+.authscreen{background:radial-gradient(ellipse at 80% 15%,#34432b 0,transparent 45%),var(--bg)}
+.authcard{border-radius:9px;border-color:#515c43;background:linear-gradient(155deg,#283324,#20291f);box-shadow:0 18px 60px #0004,inset 0 1px rgba(255,255,255,.04)}
+.authbrand{display:flex;align-items:center;gap:10px}
+.authbrand:before{content:"";display:inline-block;width:27px;height:27px;background:url('./icon.svg') center/contain no-repeat}
+.authcard input,dialog input,dialog select{border-radius:5px;background:#192219;border-color:#4a5540}
+dialog{border-radius:8px;background:#222b1f;border-color:#62694d}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
+
 </style></head>
 <body>
 <section class="authscreen" id="authscreen">
@@ -37,7 +79,7 @@
   </form>
 </section>
 <div class="layout hidden" id="app-layout">
-<aside class="sidebar" id="sidebar"><div class="brand"><span class="mark">≋</span><div><strong>COMMAND</strong><small>CENTRE</small></div></div>
+<aside class="sidebar" id="sidebar"><div class="brand"><img class="brand-logo" src="./icon.svg" alt="" width="34" height="34"><div><strong>COMMAND</strong><small>CENTRE</small></div></div>
 <nav class="nav" aria-label="Main navigation"><button class="active" data-view="home"><span class="symbol">⌂</span>Home</button><button data-view="settings"><span class="symbol">⚙</span>Settings</button><button data-view="apps"><span class="symbol">▦</span>My apps</button><button data-view="tasks"><span class="symbol">☷</span>Tasks <span id="taskcount" class="count">0</span></button><button data-view="notes"><span class="symbol">▤</span>Notes</button></nav><div class="sidebar-bottom">● &nbsp; Your space<br><br>A little more room to think.<br><br><button class="linkbtn" id="signout">Sign out</button></div></aside>
 <main class="main"><header class="topbar"><button class="mobilemenu" id="menu">☰</button><div class="crumb">Workspace &nbsp;/&nbsp; <b id="crumb">Home</b></div><div class="date" id="date"></div></header>
 <section class="page home" id="home"><div class="welcome"><div><p class="eyebrow">YOUR PERSONAL WORKSPACE</p><h1>Make room for<br><em>what matters.</em></h1><p class="sub">Your tools, projects, and ideas. All in one place.</p></div><div class="landscape" aria-hidden="true"><div class="sun"></div><div class="hill a"></div><div class="hill b"></div></div></div>
