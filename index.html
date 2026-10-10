@@ -148,7 +148,7 @@ $('export').addEventListener('click',()=>{let blob=new Blob([JSON.stringify({exp
 renderApps();renderTasks();setNote(state.note||'');applyAccent(state.accent||'gold');
 $('authform').addEventListener('submit',e=>{e.preventDefault();authAction('signin')});
 $('signup').addEventListener('click',()=>authAction('signup'));
-$('signout').addEventListener('click',async()=>{if(cloud)await cloud.auth.signOut();cloudUser=null;$('app-layout').classList.add('hidden');$('authscreen').classList.remove('hidden');$('auth-password').value='';$('authstatus').textContent='Signed out.';state=Object.assign({},defaults,{tasks:[],note:''});renderApps();renderTasks();setNote('');});
+$('signout').addEventListener('click',async()=>{if(cloud)await cloud.auth.signOut();cloudUser=null;localStorage.removeItem(KEY);$('app-layout').classList.add('hidden');$('authscreen').classList.remove('hidden');$('auth-password').value='';$('authstatus').textContent='Signed out.';state=Object.assign({},defaults,{tasks:[],note:''});renderApps();renderTasks();setNote('');});
 if(cloud){
  cloud.auth.getSession().then(({data,error})=>{if(error){$('authstatus').textContent='Unable to check sign-in status.';return}if(data.session)loadCloud(data.session.user)});
  cloud.auth.onAuthStateChange((event,session)=>{if(event==='SIGNED_OUT'){cloudUser=null;$('app-layout').classList.add('hidden');$('authscreen').classList.remove('hidden')}});
